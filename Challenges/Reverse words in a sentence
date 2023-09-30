@@ -1,0 +1,17 @@
+string pangram = "The quick brown fox jumps over the lazy dog";
+//Output should be "ehT kciuq nworb xof spmuj revo eht yzal god"
+
+string[] pangramArray = pangram.Split(" ");
+string[] output = new string[pangramArray.Length];
+int i = 0;
+
+foreach (string element in pangramArray) {
+    char[] word = element.ToCharArray();
+    Array.Reverse(word);
+    string mergedWord = new string(word);
+    output[i] = mergedWord;
+    i++;
+}
+
+string reversedPangram = String.Join(" ", output);
+Console.WriteLine(reversedPangram);
