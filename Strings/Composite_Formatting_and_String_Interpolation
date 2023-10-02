@@ -1,0 +1,38 @@
+// Composite formatting uses numbered placeholders within a string. At run time, everything inside the braces is resolved to a value that is also passed in based on their position.
+string first = "Hello";
+string second = "World";
+string result = string.Format("{0} {1}!", first, second);
+Console.WriteLine(result);
+Console.WriteLine("{0} {0} {0}!", first, second);
+
+Console.WriteLine();
+
+// String interpolation is a technique that simplifies composite formatting.
+Console.WriteLine($"{first} {second}!");
+Console.WriteLine($"{second} {first}!");
+Console.WriteLine($"{first} {first} {first}!");
+
+
+// Formatting currency - The :C currency format specifier is used to present the price and discount variables as currency
+decimal price = 123.45m;
+int discount = 50;
+Console.WriteLine($"Price: {price:C} (Save {discount:C})");
+
+
+// Formatting Numbers - The N numeric format specifier makes numbers more readable by including commas to delineate thousands, millions, billions, and so on
+decimal measurement = 123456.78912m;
+Console.WriteLine($"Measurement: {measurement:N} units");
+Console.WriteLine($"Measurement: {measurement:N4} units");
+
+// Formatting percentages - Use the P format specifier to format percentages
+decimal tax = .36785m;
+Console.WriteLine($"Tax rate: {tax:P2}");
+
+// Combining them:
+price = 67.55m;
+decimal salePrice = 59.99m;
+
+string yourDiscount = String.Format("You saved {0:C2} off the regular {1:C2} price. ", (price - salePrice), price);
+
+yourDiscount += $"A discount of {((price - salePrice)/price):P2}!"; //inserted
+Console.WriteLine(yourDiscount);

@@ -1,3 +1,6 @@
+// Clear items in an array, learning the elements are set to null, using the Array.Clear()method.
+// Resize an array to add and remove elements using the Array.Resize() method.
+
 string value = "abc123";
 char[] valueArray = value.ToCharArray();
 Array.Reverse(valueArray);
