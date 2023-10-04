@@ -1,0 +1,35 @@
+// Extract, replace, and remove data from an input string
+const string input = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
+
+/* Output should be:
+Quantity: 5000
+Output: <h2>Widgets &reg;</h2><span>5000</span>
+*/
+
+string quantity = "";
+string output = "";
+
+const string registeredMark = "&reg";
+int openingTagValue = 0;
+int closingTagValue = 0;
+string message;
+
+// Extract string between the <span></span> tags
+openingTagValue = input.IndexOf("<span>") + 6;
+closingTagValue = input.IndexOf("</span>");
+int length = closingTagValue - openingTagValue;
+message = input.Substring(openingTagValue, length);
+quantity += "Quantity: " + message;
+
+// Extract string from between the <div></div> tags and replace the trade symbol
+openingTagValue = input.IndexOf("<div>") + 5;
+closingTagValue = input.IndexOf("</div>");
+length = closingTagValue - openingTagValue;
+message = input.Substring(openingTagValue, length);
+output += "Output: " + message;
+output = output.Replace("&trade", registeredMark);
+
+Console.WriteLine(quantity);
+Console.WriteLine(output);
+
+
