@@ -1,5 +1,3 @@
-﻿Console.WriteLine("All the challenges are in their own files");
-
 string[] words = {"racecar" ,"talented", "deified", "tent", "tenet"};
 
 Console.WriteLine("Is it a palindrome?");
