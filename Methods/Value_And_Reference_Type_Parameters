@@ -1,0 +1,67 @@
+//  Value and Reference Type Parameters
+
+
+// Value types such as int, bool, float, double, and char directly contain values. Reference types such as string, array, and objects (such as instances of Random) don't store their values directly. Instead, reference types store an address where their value is being stored.
+
+
+// When an argument is passed to a method, value type variables have their values copied into the method. Each variable has its own copy of the value, so the original variable isn't modified.
+
+
+// With reference types, the address of the value is passed into the method. The variable given to the method references the value at that address, so operations on that variable affect the value that is referenced by the other
+
+
+// It is important to remember that string is a reference type, but it is immutable. That means once it has been assigned a value, it can't be altered. In C#, when methods and operators are used to modify a string, the result that is returned is actually a new string object
+
+
+// Passing by Value
+int a = 3;
+int b = 4;
+int c = 0;
+
+
+Multiply(a, b, c); // Copies of a, b and c are given as arguments to the function
+Console.WriteLine($"global statement: {a} x {b} = {c}");
+
+
+void Multiply(int a, int b, int c)
+{
+    c = a * b;
+    Console.WriteLine($"inside Multiply method: {a} x {b} = {c}");
+}
+
+
+// Passing by Reference
+int[] array = { 1, 2, 3, 4, 5 };
+
+
+PrintArray(array);
+Clear(array);
+Console.WriteLine();
+PrintArray(array);
+
+
+void PrintArray(int[] array)
+{
+    foreach (int a in array)
+    {
+        Console.Write($"{a} ");
+    }
+}
+
+
+void Clear(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = 0;
+    }
+}
+Console.Clear();
+
+
+// Variables can be categorized as value types and reference types.
+// Value types directly contain values, and reference types store the address of the value.
+// Methods using value type arguments create their own copy of the values.
+// Methods that perform changes on an array parameter affect the original input array.
+// String is an immutable reference type.
+// Methods that perform changes on a string parameter don't affect the original string
